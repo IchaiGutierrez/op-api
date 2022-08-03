@@ -19,14 +19,9 @@ router.get('/hola', function (req, res) {
 
 //Sql conection
 var mysql      = require('mysql');
+const CONNECTION = require('../settings/database');
 var datos = [];
-var connection = mysql.createConnection({
-  host     : 'a2nlmysql11plsk.secureserver.net',
-  user     : 'arjamex',
-  password : 'Egf6@9t3',
-  port : '3306',
-  database: 'oposdb_'
-});
+var connection = mysql.createConnection(CONNECTION);
 
 connection.connect();
 connection.query('SELECT * FROM users', function(err, rows, fields) {
